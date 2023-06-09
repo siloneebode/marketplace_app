@@ -44,7 +44,7 @@ class CustomIconList extends StatelessWidget {
                       ),
                       const SizedBox(height: 2,),
                       Text(
-                        content!,
+                        content,
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 14,

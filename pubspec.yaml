@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
+  sdk: '>=2.17.6 <=3.0.3'
 
 dependencies:
   flutter:
@@ -18,7 +18,22 @@ dependencies:
   carousel_slider: ^4.2.1
   flutter_switch: ^0.3.2
   reorderables: ^0.6.0
-
+  charts_flutter: ^0.12.0
+  image_picker: ^0.8.7
+  path_provider: ^2.0.15
+  get_storage: ^2.0.3
+  permission_handler: ^9.2.0
+  cached_network_image: ^3.2.3
+  photo_manager:  ^2.6.0
+  json_serializable: ^6.6.2
+  json_annotation: ^4.8.1
+  http: ^0.13.4
+  hexcolor: ^2.0.6
+  dio: ^5.1.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  hive_generator: ^2.0.0
+  build_runner: ^2.4.5
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +42,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
 
   assets:
     - assets/

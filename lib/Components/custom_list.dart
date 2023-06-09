@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../config/constants.dart';
-
 class CustomList extends StatelessWidget {
   final String title ;
   final String? title2 ;

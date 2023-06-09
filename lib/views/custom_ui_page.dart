@@ -70,7 +70,7 @@ class CustomUIPage extends StatelessWidget {
                     controller: formController.textController,
                     obscureText: false,
                     keyboardType: TextInputType.text,
-                    onChanged: () {},
+                    onChanged: (value) {},
                   ),
                   const SizedBox(
                     height: 15,
@@ -81,7 +81,7 @@ class CustomUIPage extends StatelessWidget {
                     obscureText: true,
                     keyboardType: TextInputType.text,
                     suffix: const Icon(Icons.remove_red_eye),
-                    onChanged: () {},
+                    onChanged: (value) {},
                   ),
                   const SizedBox(
                     height: 25,

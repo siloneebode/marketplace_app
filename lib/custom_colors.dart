@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-class CustomColor {
+class kCustomColor {
   static const Color kPrimary = Color(0xFF00BCD4);
   static const  Color kDark = Color(0xFF000000);
   static const Color kWhite = Color(0xFFFFFFFF);

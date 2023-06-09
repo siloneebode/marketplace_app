@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:marketplace_app/Components/modal/custom_modal.dart';
 import 'package:marketplace_app/widgets/buttons/primary_button.dart';
 import 'package:marketplace_app/widgets/buttons/secondary_button.dart';
 
 import '../../Http/Controller/textfield_controller.dart';
-import '../../Widgets/AppButtons/app_button.dart';
 import '../../widgets/form/custom_field.dart';
 
 class PasswordResetPage extends StatelessWidget {
@@ -63,7 +61,7 @@ class PasswordResetPage extends StatelessWidget {
                             controller: formController.textController,
                             obscureText: false,
                             keyboardType: TextInputType.text,
-                            onChanged: () {},
+                            onChanged: (value) {},
                           ),
                           const SizedBox(
                             height: 25,

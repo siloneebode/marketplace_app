@@ -1,8 +1,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:marketplace_app/views/bottom_navbar_pages/profile_detail_page.dart';
+import 'package:marketplace_app/views/notification_page.dart';
+import 'package:marketplace_app/views/order/order_page.dart';
+import 'package:marketplace_app/views/profil/account_informations_page.dart';
+import 'package:marketplace_app/views/profil/wallet_page.dart';
+import 'package:marketplace_app/views/translation/translation_page.dart';
 
 import '../../config/constants.dart';
+import '../favoris/favoris_page.dart';
+import '../profil/langue_page.dart';
+import '../profil/security_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -21,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 60,
+              height: 25,
             ),
             const Padding(
               padding:  EdgeInsets.symmetric(horizontal: kdPadding),
@@ -34,15 +42,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 20,
+            const SizedBox(
+              height: 15,
             ),
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileDetailPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const ProfileDetailPage()));
               },
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: kdPadding,vertical: 20),
+                padding:  const EdgeInsets.symmetric(horizontal: kdPadding,vertical: 10),
                 child: Row(
                   children: [
                     const CircleAvatar(
@@ -83,7 +91,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
 
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: kdPadding),
+              padding:  const EdgeInsets.symmetric(horizontal: kdPadding),
               child: Container(height: 1,width: double.infinity,color: Colors.black12,),
             ),
             const SizedBox(height: 15,),
@@ -91,7 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
              const Padding(
                padding:  EdgeInsets.symmetric(horizontal: kdPadding,vertical: 12),
                child: Text(
-                 'Parametres',
+                 'Paramètres',
                  style: TextStyle(
                    color: Colors.black,
                    fontSize: 23,
@@ -99,38 +107,92 @@ class _ProfilePageState extends State<ProfilePage> {
                  ),
                ),
              ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             _reusablaWidget(
-                (){},
+                (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const AccountInformationPage()));
+                },
               Icons.account_circle_outlined,
-              'Informations personelles'
+              'Informations du compte'
             ),
             _reusablaWidget(
-                    (){},
-                Icons.security_sharp,
+                    (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const SecurityPage()));
+                    },
+                Icons.shield_outlined,
                 'Connexion et securité'
             ),
             _reusablaWidget(
-                    (){},
-                Icons.monetization_on_outlined,
-                'Paiements et versements'
+                    (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const WalletPage()));},
+                Icons.account_balance_wallet_outlined,
+                'Mon portemonaie'
             ),
             _reusablaWidget(
-                    (){},
+                    (){
+
+                    },
                 Icons.settings_outlined,
-                'Accessibilité'
+                'Personnalisation'
             ),
 
             _reusablaWidget(
-                    (){},
-                Icons.notifications_outlined,
-                'Notifications'
+                    (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const FavorisPage()));
+                },
+                Icons.favorite_border_outlined,
+                'mes favoris'
             ),
 
             _reusablaWidget(
-                    (){},
+                    (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => OrderPage()));
+                },
+                Icons.sell_outlined,
+                'mes commandes'
+            ),
+
+            _reusablaWidget(
+                    (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const LanguePage()));
+                    },
+                Icons.language_outlined,
+                'Langue et traduction'
+            ),
+
+            _reusablaWidget(
+                    (){Navigator.push(context, MaterialPageRoute(builder: (context) => const TranslationPage()));},
                 Icons.g_translate_sharp,
-                'Translation'
+                'Traduction'
+            ),
+
+            const SizedBox(height: 25,),
+
+            const Padding(
+              padding:  EdgeInsets.symmetric(horizontal: kdPadding,vertical: 12),
+              child: Text(
+                'Notifications',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+
+            _reusablaWidget(
+                    (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const NotificationPage()));
+                },
+                Icons.notifications_outlined,
+                'Notifications push'
+            ),
+
+            _reusablaWidget(
+                    (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const NotificationPage()));
+                },
+                Icons.email_outlined,
+                'Notifications par email'
             ),
 
             const SizedBox(height: 25,),
@@ -150,12 +212,14 @@ class _ProfilePageState extends State<ProfilePage> {
             _reusablaWidget(
                     (){},
                 Icons.assistant_direction_outlined,
-                "Fonctionnement d'xxx"
+                "Fonctionnement de xxxx"
             ),
+
+
 
             _reusablaWidget(
                     (){},
-                Icons.security_update_good,
+                Icons.headphones,
                 'Centre de sécurité'
             ),
 
@@ -170,19 +234,20 @@ class _ProfilePageState extends State<ProfilePage> {
         InkWell(
           onTap: onTap,
           child: Padding(
-            padding:  const EdgeInsets.symmetric(vertical: 20,horizontal: kdPadding),
+            padding:  const EdgeInsets.symmetric(vertical: 15,horizontal: kdPadding),
             child: Row(
               children: [
                 Icon(
                   icon,
                   size: 25,
                 ),
-                const SizedBox(width: 10,),
+                const SizedBox(width: 15,),
                 Text(
                   text,
                   style: const TextStyle(
                   color: Colors.black,
-                  fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  fontSize: 15,
                 ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,

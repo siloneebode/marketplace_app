@@ -8,7 +8,7 @@ class CustomSeparator extends StatelessWidget {
     return Container(
       height: 1,
       width: double.infinity,
-      color: Colors.grey.shade400,
+      color: Colors.grey.shade300,
     );
   }
 }

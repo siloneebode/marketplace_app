@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:marketplace_app/views/prix_page.dart';
+import 'package:marketplace_app/views/product_price_screen.dart';
 import 'package:reorderables/reorderables.dart';
 
 
@@ -353,7 +353,8 @@ class _VendsTonArticlePageState extends State<VendsTonArticlePage> {
                         runSpacing: 4.0,
                         padding: const EdgeInsets.all(8),
                         children: _tiles,
-                        onReorder: _onReorder),
+                        onReorder: _onReorder
+                    ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -592,7 +593,7 @@ class _VendsTonArticlePageState extends State<VendsTonArticlePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const PrixPage()));
+                                builder: (context) => ProductPriceScreen()));
                       },
                       'Prix',
                       '',

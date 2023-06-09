@@ -14,7 +14,7 @@ const double kPaddingHorizontal = 8;
 final kInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(kBorderRadius),
   borderSide: const BorderSide(
-    color: CustomColor.kPrimary
+    color: kCustomColor.kPrimary
 )
 );
 

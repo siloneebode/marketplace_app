@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 
-import '../Widgets/AppButtons/iphone_toggle_button.dart';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import '../config/constants.dart';
-import 'bottom_navbar_pages/message_page.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({Key? key}) : super(key: key);
@@ -15,8 +15,24 @@ class _NotificationPageState extends State<NotificationPage> with TickerProvider
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 2, vsync: this);
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: kdPadding),
+              child: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ),
+            )
+        ),
+      ),
+
         backgroundColor: Colors.white,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: kdPadding),
@@ -24,64 +40,229 @@ class _NotificationPageState extends State<NotificationPage> with TickerProvider
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 25,
+                height: 15,
               ),
-              const Icon(Icons.arrow_back,color: Colors.black,size: 20,),
-              const SizedBox(height: 30,),
               const Text(
-                '**ù',
+                'Notifications',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 30,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+
+              const SizedBox(
+                height: 15,
+              ),
+
+              const Text(
+                "Paramètre les évenements auquels tu souhaites recevoir des notifications. "
+                    "La désactivation de certaines notifications peut altérer le bon fonctionnement de l'application.",
+                softWrap: true,
+                style: TextStyle(
+                  height: 1.4,
+                  fontSize: 15,
+                  color: Colors.black54
+                ),
+              ),
+              const Text(
+                "En savoir plus",
+                softWrap: true,
+                style: TextStyle(
+                    height: 1.4,
+                    fontSize: 15,
+                    decoration: TextDecoration.underline,
+                    fontWeight: FontWeight.bold
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
-              TabBar(
-                isScrollable: true,
-                labelStyle: const TextStyle(fontWeight: FontWeight.bold),
-                unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-                indicatorColor: Colors.black,
-                controller: _tabController,
-                unselectedLabelColor: Colors.grey.shade500,
-                labelColor: Colors.black,
 
-                tabs: const <Widget>[
-                  Tab(
-                    text: 'Offres et mises a jour',
-                  ),
-                  Tab(
-                    text: 'Compte',
-                  )
-                ],
-              ),
-              Expanded(
-                child: SizedBox(
-                  width: double.infinity,
-                  child: TabBarView(
-                    controller: _tabController,
-                    children: const [
-                      FirstPage(),
-                      Center(
-                        child: Text(
-                          'There are No Comptes yet.',
+              SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+                const SizedBox(height: 35,),
+
+                InkWell(
+                    child: Row(
+                      children: [
+                        const Text(
+                          'Nouveau message',
                           style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16
                           ),
                         ),
-                      ),
-                    ],
-                  ),
+
+                        const Spacer(),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        CupertinoSwitch(
+                            activeColor: Colors.black,
+                            trackColor: Colors.grey,
+                            value: true,
+                            onChanged: (value) {})
+                      ],
+                    )
                 ),
-              ),
+                const SizedBox(height: 25,),
+                InkWell(
+                    child: Row(
+                      children: [
+                        const Text(
+                          'Nouveau follower',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16
+                          ),
+                        ),
+                        const Spacer(),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        CupertinoSwitch(
+                            activeColor: Colors.black,
+                            trackColor: Colors.grey,
+                            value: true,
+                            onChanged: (value) {})
+                      ],
+                    )
+                ),
+                const SizedBox(height: 25,),
+                InkWell(
+                    child: Row(
+                      children: [
+                        const Text(
+                          'Nouvelle offre',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16
+                          ),
+                        ),
+                        const Spacer(),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        CupertinoSwitch(
+                            activeColor: Colors.black,
+                            trackColor: Colors.grey,
+                            value: true,
+                            onChanged: (value) {})
+                      ],
+
+
+                    )
+                ),
+                const SizedBox(height: 25,),
+                InkWell(
+                    child: Row(
+                      children: [
+                        const Text(
+                          'Nouvel avis',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16
+                          ),
+                        ),
+                        const Spacer(),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        CupertinoSwitch(
+                            activeColor: Colors.black,
+                            trackColor: Colors.grey,
+                            value: true,
+                            onChanged: (value) {})
+                      ],
+                    )
+                ),
+                const SizedBox(height: 25,),
+                InkWell(
+                    child: Row(
+                      children: [
+                        const Text(
+                          'Nouvel article en favoris',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16
+                          ),
+                        ),
+                        const Spacer(),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        CupertinoSwitch(
+                            activeColor: Colors.black,
+                            trackColor: Colors.grey,
+                            value: true,
+                            onChanged: (value) {})
+                      ],
+                    )
+                ),
+                const SizedBox(height: 25,),
+                InkWell(
+                    child: Row(
+                      children: [
+                        const Text(
+                          'Campagne marketing',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16
+                          ),
+                        ),
+                        const Spacer(),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        CupertinoSwitch(
+                            activeColor: Colors.black,
+                            trackColor: Colors.grey,
+                            value: true,
+                            onChanged: (value) {})
+                      ],
+                    )
+                ),
+                const SizedBox(height: 25,),
+                InkWell(
+                    child: Row(
+                      children: [
+                        const Text(
+                          'Nouvelle commande',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16
+                          ),
+                        ),
+                        const Spacer(),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        CupertinoSwitch(
+                            activeColor: Colors.black,
+                            trackColor: Colors.grey,
+                            value: true,
+                            onChanged: (value) {})
+                      ],
+                    )
+                ),
+              ],
+            ),
+          )
+
             ],
           ),
         ),
-      ),
     );
   }
 }
@@ -100,30 +281,138 @@ class _FirstPageState extends State<FirstPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 15,),
+          const SizedBox(height: 20,),
           const Text(
-            'Information et recompenses pour les hotes',style: TextStyle(
+            'Notifications des vendeurs',style: TextStyle(
             color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
+            fontWeight: FontWeight.w500,
+            fontSize: 20,
+            height: 1.5
           ),
           ),
-          const SizedBox(height: 5,),
-          const Text(
-            'Decouvrez les meilleurees pratiques en matiere d\'accuril de voyageurs et accedez a des avantages exclusiv\'s',style: TextStyle(
-            color: Colors.grey,
-            fontSize: 14,
-          ),
-          ),
-          const SizedBox(height: 15,),
-          ReuseableRow('Reconnaissance et accomplissements','Active : Notifications push et apples telephoniques'),
 
-          const SizedBox(height: 45,),
-          ReuseableRow('Informations et conseils','Active : Notifications push'),
-          const SizedBox(height: 45,),
-          ReuseableRow('Tandences et suggestions de prix','Active : Notifications push'),
-          const SizedBox(height: 45,),
-          ReuseableRow('Avantages pour les hotes','Active : Notifications push'),
+          const SizedBox(height: 35,),
+
+          InkWell(
+              child: Row(
+                children: [
+                  const Text(
+                    'Nouveau message',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16
+                    ),
+                  ),
+                  const Spacer(),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  CupertinoSwitch(
+                      activeColor: Colors.black,
+                      trackColor: Colors.grey,
+                      value: true,
+                      onChanged: (value) {})
+                ],
+              )
+          ),
+          const SizedBox(height: 20,),
+          InkWell(
+              child: Row(
+                children: [
+                  const Text(
+                    'Nouveau follower',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16
+                    ),
+                  ),
+                  const Spacer(),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  CupertinoSwitch(
+                      activeColor: Colors.black,
+                      trackColor: Colors.grey,
+                      value: true,
+                      onChanged: (value) {})
+                ],
+              )
+          ),
+          const SizedBox(height: 20,),
+          InkWell(
+              child: Row(
+                children: [
+                  const Text(
+                    'Nouvelle offre',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16
+                    ),
+                  ),
+                  const Spacer(),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  CupertinoSwitch(
+                      activeColor: Colors.black,
+                      trackColor: Colors.grey,
+                      value: true,
+                      onChanged: (value) {})
+                ],
+              )
+          ),
+          const SizedBox(height: 20,),
+          InkWell(
+              child: Row(
+                children: [
+                  const Text(
+                    'Nouvel avis',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16
+                    ),
+                  ),
+                  const Spacer(),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  CupertinoSwitch(
+                      activeColor: Colors.black,
+                      trackColor: Colors.grey,
+                      value: true,
+                      onChanged: (value) {})
+                ],
+              )
+          ),
+          const SizedBox(height: 20,),
+          InkWell(
+              child: Row(
+                children: [
+                  const Text(
+                    'Nouvel article en favoris',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16
+                    ),
+                  ),
+                  const Spacer(),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  CupertinoSwitch(
+                      activeColor: Colors.black,
+                      trackColor: Colors.grey,
+                      value: true,
+                      onChanged: (value) {})
+                ],
+              )
+          ),
+
         ],
       ),
     );
@@ -133,22 +422,12 @@ class _FirstPageState extends State<FirstPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                text1,style: const TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
-              ),
-              Text(
-                text2,style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 14,
-              ),
-              ),
-            ],
+          child: Text(
+            text1,style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+              height: 1.3
+          ),
           ),
         ),
         const SizedBox(width: 30,),
@@ -194,15 +473,6 @@ class _FirstPageState extends State<FirstPage> {
                           ),
                           ),
                         ),
-                        const SizedBox(height: 10,),
-                        _textToggle('Email'),
-                        const SizedBox(height: 10,),
-                        _textToggle('Notifications push'),
-                        const SizedBox(height: 10,),
-                        _textToggle('SMS'),
-                        const SizedBox(height: 10,),
-                        _textToggle('Appels telephoniques'),
-                       const SizedBox(height: 15,),
                       ],
                     ),
                   ),
@@ -210,14 +480,11 @@ class _FirstPageState extends State<FirstPage> {
               },
             );
           },
-          child: const Text(
-            'Modifier',style: TextStyle(
-            color: Colors.black,
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            decoration: TextDecoration.underline,
-          ),
-          ),
+          child: CupertinoSwitch(
+              activeColor: Colors.black,
+              trackColor: Colors.grey,
+              value: true,
+              onChanged: (value) {})
         )
       ],
     );

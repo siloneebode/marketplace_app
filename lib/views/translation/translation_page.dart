@@ -1,16 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marketplace_app/config/constants.dart';
-import '../custom_switch.dart';
 
-class TranslationPage extends StatelessWidget {
+class TranslationPage extends StatefulWidget {
   const TranslationPage({Key? key}) : super(key: key);
 
+  @override
+  State<TranslationPage> createState() => _TranslationPage();
+}
+
+class _TranslationPage extends State<TranslationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
+        elevation: 0,
         backgroundColor: Colors.white,
         leading: InkWell(
           onTap: (){
@@ -21,55 +25,66 @@ class TranslationPage extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        title: const Text(
-          'Traduction',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
       ),
 
-      body: Padding(
+      body: Container(
         padding: const EdgeInsets.all(kdPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
+              height: 15,
+            ),
+
+            const Text(
+              'Traduction',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(
               height: 25,
             ),
 
-            const Text("Traduire automatiquement les commentaires, les messages et les titres des annonces en ta langue"),
+            const Text(
+                "Traduire automatiquement les commentaires, "
+                    "les messages et les titres des annonces en ta langue de base",
+              style: TextStyle(height: 1.4, fontSize: 15),
+            ),
 
              const SizedBox(
               height: 25,
             ),
 
-            _textToggle('Traduction'),
-          CupertinoSwitch(
-              activeColor: Colors.black,
-              trackColor: Colors.grey,
-              value: true,
-              onChanged: (value) {})
+            InkWell(
+                child: Row(
+                  children: [
+                    const Text(
+                      'Traduire',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16
+                      ),
+                    ),
+                    const Spacer(),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    CupertinoSwitch(
+                        activeColor: Colors.black,
+                        trackColor: Colors.grey,
+                        value: true,
+                        onChanged: (value) {})
+                  ],
+                )
+            ),
           ],
         ),
 
-      ),
-    );
-  }
-
-  Widget _textToggle(String text){
-    return Padding(
-      padding:  const EdgeInsets.symmetric(horizontal: kdPadding),
-      child: Row(
-        children: [
-          Text(text,style: const TextStyle(
-            color: Colors.black,
-            fontSize: 14,
-          ),),
-          const Spacer(),
-          CustomSwitch(value: true,
-            onChanged: (value) { value ; }, text: 'Traduction', )
-        ],
       ),
     );
   }

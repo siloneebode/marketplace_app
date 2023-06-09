@@ -10,7 +10,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final TextInputType keyboardType;
   final Widget? suffix;
-  final Function() onChanged;
+  final Function(String) onChanged;
 
   const CustomTextFormField({Key? key,
     required this.label,
@@ -24,7 +24,6 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formController = Get.find<CustomTextFieldController>();
     return TextFormField(
       onTapOutside: (focus) {
         FocusScope.of(context).unfocus();
@@ -35,12 +34,22 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
           labelText: label,
           border: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black54, width: 2),
+            borderSide: BorderSide(color: Colors.black, width: 2),
           ),
-        suffixIcon: suffix
+        suffixIcon: suffix,
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black, width: 2),
+        ),
+        focusedErrorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red, width: 2),
+        ),
+        labelStyle: const TextStyle(
+          color: Colors.black,
+        )
       ),
-      focusNode: formController.focusNode,
+      cursorColor: Colors.black,
       autofocus: autofocus,
+      onChanged: onChanged,
 
     );
   }

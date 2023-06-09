@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../config/constants.dart';
 
 class CouleurPage extends StatefulWidget {
@@ -20,7 +19,7 @@ class _CouleurPageState extends State<CouleurPage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          elevation: 1,
+          elevation: 0,
           backgroundColor: Colors.white,
           leading: InkWell(
             onTap: () {
@@ -42,17 +41,17 @@ class _CouleurPageState extends State<CouleurPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: kdPadding),
                 child: Text(
                   'Suggestions',
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               InkWell(
@@ -127,11 +126,11 @@ class _CouleurPageState extends State<CouleurPage> {
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               ListView.builder(
                   shrinkWrap: true,
-                  physics: BouncingScrollPhysics(),
-                  itemCount: 10,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: 20,
                   itemBuilder: (BuildContext context, int index) {
                     return Column(
                       children: [
@@ -146,24 +145,24 @@ class _CouleurPageState extends State<CouleurPage> {
                             });
                           },
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: kdPadding,vertical: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: kdPadding,vertical: 20),
                             child: Row(
                               children: [
                                 CircleAvatar(
                                   radius: 10,
                                   backgroundColor: Colors.orange.shade100,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
-                                Text(
+                                const Text(
                                   'Creme',
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                               ischecked ?
                               Container(
                                   height: 22,
@@ -182,7 +181,7 @@ class _CouleurPageState extends State<CouleurPage> {
                                       color: Colors.black,
                                   borderRadius: BorderRadius.circular(5),
                                 ),
-                                child: Padding(
+                                child: const Padding(
                                   padding:  EdgeInsets.all(2),
                                   child: Icon(Icons.check,color: Colors.white,size: 17,),
                                 ),

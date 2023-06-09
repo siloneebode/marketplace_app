@@ -487,7 +487,7 @@ class _AcceptOrDeclinePageState extends State<AcceptOrDeclinePage> {
                     borderRadius: BorderRadius.circular(7),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: kdPadding),
+                    padding: const EdgeInsets.symmetric(horizontal: kdPadding),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

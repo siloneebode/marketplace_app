@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../Widgets/AppButtons/social_button.dart';
-import '../../config/constants.dart';
-
 class SocialComponent extends StatelessWidget {
   const SocialComponent({
     super.key,
