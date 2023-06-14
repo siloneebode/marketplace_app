@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:marketplace_app/Components/custom_separator.dart';
+
+import '../../Insfrastructure/components/custom_bottom_sheet.dart';
+import '../../Insfrastructure/components/versement/versement_sheet.dart';
 
 class VersementModePage extends StatelessWidget {
   const VersementModePage({super.key});
@@ -31,7 +36,7 @@ class VersementModePage extends StatelessWidget {
             ),
 
             Text(
-              'Ton mode de versement',
+              'Configure tes modes de versement',
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
@@ -49,7 +54,8 @@ class VersementModePage extends StatelessWidget {
               style: TextStyle(
                   height: 1.4,
                   fontSize: 16,
-                  fontFamily: 'silone'),
+                  fontFamily: 'silone'
+              ),
             ),
 
             SizedBox(height: 25,),
@@ -63,7 +69,7 @@ class VersementModePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Orange  69*****28',
+                    const Text('Orange  69*****28',
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -96,8 +102,8 @@ class VersementModePage extends StatelessWidget {
 
                 InkWell(
                   onTap: () {},
-                  child: Text(
-                    'Modifier' ,style: const TextStyle(
+                  child: const Text(
+                    'Modifier' ,style: TextStyle(
                       color: Colors.black,
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
@@ -172,6 +178,7 @@ class VersementModePage extends StatelessWidget {
             SizedBox(height: 15,),
             const CustomSeparator(),
             SizedBox(height: 20,),
+
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
@@ -180,7 +187,14 @@ class VersementModePage extends StatelessWidget {
                   ),
                   fixedSize: const Size(double.infinity, 55),
                 ),
-                onPressed: () {},
+                onPressed: () => Get.bottomSheet(
+                    const CustomBottomSheet(
+                      header: 'Ajoute un mode de versement',
+                      body: VersementSheet(),
+                      heightFactor: 0.64,
+
+                    )
+                ),
                 child: const Text('Ajoute un mode de versement',
                   style: TextStyle(
                     color: Colors.white,

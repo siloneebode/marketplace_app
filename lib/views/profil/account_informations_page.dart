@@ -37,7 +37,7 @@ class _AccountInformationPage extends State<AccountInformationPage> with TickerP
             )
         ),
       ),
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: kdPadding),
           child: Column(
@@ -63,8 +63,9 @@ class _AccountInformationPage extends State<AccountInformationPage> with TickerP
                 'Non renseigné',
                 'Modifier',
                   () => Get.bottomSheet(
-                    CustomBottomSheet(
-                      title: 'Nom et prénom',
+                    const CustomBottomSheet(
+                      header: 'Ajouter un moyen de paiement',
+
 
                     )
                       )
@@ -204,7 +205,7 @@ class _AccountInformationPage extends State<AccountInformationPage> with TickerP
                       ),
                     ),
                     builder: (context) {
-                      return CustomBottomSheet(title: 'Address',);
+                      return const CustomBottomSheet(header: 'Address',);
                     },
                   )
               ),

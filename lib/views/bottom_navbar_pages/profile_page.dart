@@ -2,7 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:marketplace_app/views/boost/product_boost_screen.dart';
 import 'package:marketplace_app/views/bottom_navbar_pages/profile_detail_page.dart';
+import 'package:marketplace_app/views/discount/reduction_page.dart';
+import 'package:marketplace_app/views/guide/guide_search_screen.dart';
 import 'package:marketplace_app/views/notification_page.dart';
 import 'package:marketplace_app/views/order/order_page.dart';
 import 'package:marketplace_app/views/profil/account_informations_page.dart';
@@ -14,9 +17,9 @@ import '../../config/constants.dart';
 import '../Versement/versement_screen.dart';
 import '../deliver/deliver_page.dart';
 import '../favoris/favoris_page.dart';
+import '../guide/guide_screen.dart';
 import '../profil/langue_page.dart';
 import '../security/security_page.dart';
-import '../reduction/reduction_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -135,14 +138,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 'Mon portemonaie'
             ),
             _reusablaWidget(
-                    (){},
+                    (){Get.to(()=> const ProductBoostScreen());},
                 Icons.settings_outlined,
                 'Personnalisation'
             ),
 
             _reusablaWidget(
                     (){
-                      Get.to(()=> const VacationModeScreen());
+                      Get.to(()=> const GuideSearchScreen());
                     },
                 Icons.toggle_off_outlined,
                 'Mode Vacances'
@@ -178,7 +181,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
             _reusablaWidget(
                     (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ReductionPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DiscountScreen()));
                 },
                 Icons.sell_outlined,
                 'Mes réductions'
@@ -245,9 +248,11 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
 
             _reusablaWidget(
-                    (){},
-                Icons.assistant_direction_outlined,
-                "Fonctionnement de xxxx"
+                    (){
+                      Get.to(() => const GuideScreen());
+                    },
+                Icons.help_outline,
+                "Ton guide"
             ),
 
             _reusablaWidget(

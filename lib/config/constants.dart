@@ -1,5 +1,5 @@
 
 
-const kdPadding = 18.0;
+const kdPadding = 20.0;
 
 const kfontweight = 'w500';

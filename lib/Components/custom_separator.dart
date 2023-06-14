@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 
 class CustomSeparator extends StatelessWidget {
-  const CustomSeparator({Key? key}) : super(key: key);
+  final double? height ;
+  final double? width ;
+  final double? space ;
+  const CustomSeparator({Key? key,
+    this.height,
+    this.width,
+    this.space = 1}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 1,
+    return Column(
+      children: [
+        SizedBox(height: height, width: width,),
+      Container(
+      height: space,
       width: double.infinity,
       color: Colors.grey.shade300,
+    ),
+      ],
     );
   }
 }
