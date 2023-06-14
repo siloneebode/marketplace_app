@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace_app/Domain/Filters/order_filter_model.dart';
+import 'package:marketplace_app/domain/Filters/order_filter_model.dart';
 
 import '../../Components/custom_separator.dart';
-import '../../Domain/Order/order_model.dart';
+import '../../domain/Order/order_model.dart';
 import '../../config/constants.dart';
 
 class OrderPage extends StatefulWidget {

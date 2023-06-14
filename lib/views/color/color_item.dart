@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:marketplace_app/Http/Controller/product/color_controller.dart';
 
-import '../../Domain/product/custom_color.dart';
+import '../../domain/product/custom_color.dart';
 import '../../config/constants.dart';
 
 class ColorItems extends StatelessWidget {

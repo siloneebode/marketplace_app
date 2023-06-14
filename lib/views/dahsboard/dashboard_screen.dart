@@ -4,6 +4,7 @@ import 'package:marketplace_app/controller/dashboard_controller.dart';
 import 'package:marketplace_app/views/detail_product_page.dart';
 import 'package:marketplace_app/views/payment_page.dart';
 import 'package:marketplace_app/views/product/create/create_product_screen.dart';
+import '../bottom_navbar_pages/home_page.dart';
 import '../bottom_navbar_pages/profile_page.dart';
 import '../vends_ton_article_page.dart';
 
@@ -18,13 +19,12 @@ class DashboardScreen extends StatelessWidget {
           body: SafeArea(
             child: IndexedStack(
               index: controller.tabindex,
-              children: [
-                const DetailProductPage(),
-                const PaymentPage(),
+              children: const [
+                HomePage(),
+                PaymentPage(),
                 CreateProductScreen(),
-                const VendsTonArticlePage(),
-                const ProfilePage(),
-
+                VendsTonArticlePage(),
+                ProfilePage(),
               ],
             ),
           ),
@@ -52,6 +52,7 @@ class DashboardScreen extends StatelessWidget {
                   child: Icon(Icons.add_circle_outline, size: 30,),
                 ),
                 label: 'Vendre',
+                tooltip: 'Vends tes affaires'
               ),
               BottomNavigationBarItem(
                 icon: Padding(
@@ -63,7 +64,7 @@ class DashboardScreen extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: Padding(
                   padding: EdgeInsets.only(bottom: 2),
-                  child: Icon(Icons.person_3, size: 30,),
+                  child: Icon(Icons.person_outline_sharp, size: 30,),
                 ),
                 label: 'Profil',
               ),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:marketplace_app/Domain/product/product_model.dart';
+import 'package:marketplace_app/domain/product/product_model.dart';
 import 'package:marketplace_app/Http/Controller/product/product_image_controller.dart';
 import 'package:marketplace_app/routes/app_route.dart';
 import 'package:marketplace_app/views/product/create/pick_image_screen.dart';
 import 'package:photo_manager/photo_manager.dart';
+
+import '../../../Insfrastructure/components/bottomsheet/pick_image_sheet.dart';
 
 class ProductImageScrren extends StatelessWidget {
 
@@ -67,24 +69,16 @@ class ProductImageScrren extends StatelessWidget {
                       const SizedBox(
                         height: 15,
                       ),
-                      const Text(
-                        'Ajoute quelques photos',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
+                       Text(
+                        'product_image_title'.tr,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
-                      const Text(
-                        "Pour commencer tu dois ajouter des photos de ton article. De belles photos permettront de vendre ton article rapidement. C'est aussi simple que ça.",
-                        style: TextStyle(
-                            height: 1.4,
-                            fontSize: 16,
-                            color: Colors.black
-                        ),
+                       Text(
+                        'product_image_subtitle'.tr,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const SizedBox(
                         height: 30,
@@ -111,9 +105,7 @@ class ProductImageScrren extends StatelessWidget {
                                             //Get.to(() => PickImageScreen());
                                           },
                                           child:  InkWell(
-                                              onTap: () {
-                                                Get.to(() => PickImageScreen());
-                                              },
+                                              onTap: () {},
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                   borderRadius: BorderRadius.circular(5),
@@ -144,65 +136,22 @@ class ProductImageScrren extends StatelessWidget {
                                     height: 20,
                                   ),
 
-                                  const Center(
+                                   Center(
                                     child: Text(
-                                      "Ajoute jusqu'à 10 photos",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold
-                                      ),
+                                      'product_image_btn1'.tr,
+                                      style: Theme.of(context).textTheme.bodySmall,
                                     ),
                                   )
 
                                 ]
                             ),
                           ):
-                          Container(
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
 
-                                  InkWell(
-                                      onTap: () async {
-                                        Get.to(() => PickImageScreen());
-                                      },
-
-                                      child: Container(
-                                        height: 70,
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(7),
-                                            border: Border.all(
-                                              color: Colors.grey.shade400,
-                                            )),
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                                          child: Row(
-                                            children: const [
-                                              Icon(
-                                                Icons.add,
-                                                color: Colors.black,
-                                                size: 25,
-                                              ),
-                                              SizedBox(width: 20,),
-                                              Text(
-                                                'Ajoute des photos',
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500
-                                                ),
-                                              ),
-                                              SizedBox(height: 10,)
-                                            ],
-                                          ),
-                                        ),
-                                      )
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  InkWell(
-                                    onTap: () {},
+                                InkWell(
+                                    onTap: () => Get.to(() => PickImageScreen()),
                                     child: Container(
                                       height: 70,
                                       width: double.infinity,
@@ -211,18 +160,18 @@ class ProductImageScrren extends StatelessWidget {
                                           border: Border.all(
                                             color: Colors.grey.shade400,
                                           )),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                                      child: const Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 20),
                                         child: Row(
-                                          children: const [
+                                          children: [
                                             Icon(
-                                              Icons.camera_alt_outlined,
+                                              Icons.add,
                                               color: Colors.black,
                                               size: 25,
                                             ),
                                             SizedBox(width: 20,),
                                             Text(
-                                              'Prend de nouvelles photos',
+                                              'Ajoute des photos',
                                               style: TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 15,
@@ -233,11 +182,47 @@ class ProductImageScrren extends StatelessWidget {
                                           ],
                                         ),
                                       ),
+                                    )
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                InkWell(
+                                  onTap: () {},
+                                  child: Container(
+                                    height: 70,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(7),
+                                        border: Border.all(
+                                          color: Colors.grey.shade400,
+                                        )),
+                                    child: const Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 20),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.camera_alt_outlined,
+                                            color: Colors.black,
+                                            size: 25,
+                                          ),
+                                          SizedBox(width: 20,),
+                                          Text(
+                                            'Prend de nouvelles photos',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500
+                                            ),
+                                          ),
+                                          SizedBox(height: 10,)
+                                        ],
+                                      ),
                                     ),
                                   ),
+                                ),
 
-                                ]
-                            ),
+                              ]
                           )
                       ),
 

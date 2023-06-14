@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marketplace_app/Components/custom_separator.dart';
-import 'package:marketplace_app/Domain/Language/language_model.dart';
+import 'package:marketplace_app/domain/Language/language_model.dart';
 import 'package:marketplace_app/Http/Controller/language_list_controller.dart';
 import 'package:marketplace_app/config/constants.dart';
 

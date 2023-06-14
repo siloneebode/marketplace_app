@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-List<Category> addColorListFromJson(String str)
+List<Category> addCategoryListFromJson(String str)
 => List<Category>.from(json.decode(str)['data'].map((category)
 => Category.fromJson(category)));
 

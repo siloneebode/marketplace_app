@@ -38,7 +38,6 @@ class PickImageScreen extends StatelessWidget {
         _fetchImages();
       },
         builder: (controller) {
-
           return  Scaffold(
               appBar: AppBar(
                   elevation: 1,
@@ -52,6 +51,9 @@ class PickImageScreen extends StatelessWidget {
                       Icons.arrow_back,
                       color: Colors.black,
                     ),
+                  ),
+                  title: Text(
+                    "Choisi jusqu'a 10 images"
                   ),
                   actions: [
                     IconButton(
@@ -121,7 +123,8 @@ class PickImageScreen extends StatelessWidget {
                         ),
                       ))
                   )
-              ));
+              )
+          );
         });
   }
 

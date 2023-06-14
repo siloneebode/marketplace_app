@@ -1,16 +1,22 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:marketplace_app/views/bottom_navbar_pages/profile_detail_page.dart';
 import 'package:marketplace_app/views/notification_page.dart';
 import 'package:marketplace_app/views/order/order_page.dart';
 import 'package:marketplace_app/views/profil/account_informations_page.dart';
-import 'package:marketplace_app/views/profil/wallet_page.dart';
+import 'package:marketplace_app/views/wallet/wallet_page.dart';
 import 'package:marketplace_app/views/translation/translation_page.dart';
+import 'package:marketplace_app/views/vacation/vacance_mode_screen.dart';
 
 import '../../config/constants.dart';
+import '../Versement/versement_screen.dart';
+import '../deliver/deliver_page.dart';
 import '../favoris/favoris_page.dart';
 import '../profil/langue_page.dart';
-import '../profil/security_page.dart';
+import '../security/security_page.dart';
+import '../reduction/reduction_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -39,6 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Colors.black,
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'silone_bold',
                 ),
               ),
             ),
@@ -49,22 +56,22 @@ class _ProfilePageState extends State<ProfilePage> {
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const ProfileDetailPage()));
               },
-              child: Padding(
-                padding:  const EdgeInsets.symmetric(horizontal: kdPadding,vertical: 10),
+              child: const Padding(
+                padding:  EdgeInsets.symmetric(horizontal: kdPadding,vertical: 10),
                 child: Row(
                   children: [
-                    const CircleAvatar(
+                    CircleAvatar(
                       backgroundColor: Colors.black,
                       backgroundImage: AssetImage(
                         'assets/download.png'
                       ),
                       radius: 25,
                     ),
-                    const SizedBox(width: 10,),
+                    SizedBox(width: 10,),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             'Silone',
                             style: TextStyle(
@@ -77,14 +84,15 @@ class _ProfilePageState extends State<ProfilePage> {
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey,
-                              fontWeight: FontWeight.w400
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'silone'
                             ),
                           ),
                         ],
                       ),
                     ),
                     Spacer(),
-                    const Icon(Icons.arrow_forward_ios_outlined,size: 17,),
+                    Icon(Icons.arrow_forward_ios_outlined,size: 17,),
                   ],
                 ),
               ),
@@ -104,6 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                    color: Colors.black,
                    fontSize: 23,
                    fontWeight: FontWeight.bold,
+                   fontFamily: 'silone_bold',
                  ),
                ),
              ),
@@ -116,39 +125,63 @@ class _ProfilePageState extends State<ProfilePage> {
               'Informations du compte'
             ),
             _reusablaWidget(
-                    (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const SecurityPage()));
-                    },
+                    (){ Get.to(() => const SecurityScreen()); },
                 Icons.shield_outlined,
                 'Connexion et securité'
             ),
             _reusablaWidget(
-                    (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const WalletPage()));},
+                    (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const MyWalletScreen()));},
                 Icons.account_balance_wallet_outlined,
                 'Mon portemonaie'
             ),
             _reusablaWidget(
-                    (){
-
-                    },
+                    (){},
                 Icons.settings_outlined,
                 'Personnalisation'
             ),
 
             _reusablaWidget(
                     (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const FavorisPage()));
+                      Get.to(()=> const VacationModeScreen());
+                    },
+                Icons.toggle_off_outlined,
+                'Mode Vacances'
+            ),
+            _reusablaWidget(
+                    (){
+                  Get.to(()=> const VersementModePage());
                 },
+                Icons.clean_hands_outlined,
+                'Mode de Versement'
+            ),
+
+            _reusablaWidget(
+                    (){Get.to(() => const FavorisPage());},
                 Icons.favorite_border_outlined,
-                'mes favoris'
+                'Mes favoris'
+            ),
+
+            _reusablaWidget((){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => OrderPage()));
+              },
+                Icons.sell_outlined,
+                'Mes commandes'
             ),
 
             _reusablaWidget(
                     (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => OrderPage()));
+                  Get.to(() => const DeliverPage());
+                },
+                Icons.delivery_dining_outlined,
+                'Méthode d\'envoi'
+            ),
+
+            _reusablaWidget(
+                    (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ReductionPage()));
                 },
                 Icons.sell_outlined,
-                'mes commandes'
+                'Mes réductions'
             ),
 
             _reusablaWidget(
@@ -175,6 +208,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Colors.black,
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
+                  fontFamily:  'silone_bold',
                 ),
               ),
             ),
@@ -205,6 +239,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Colors.black,
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'silone_bold',
                 ),
               ),
             ),
@@ -214,8 +249,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 Icons.assistant_direction_outlined,
                 "Fonctionnement de xxxx"
             ),
-
-
 
             _reusablaWidget(
                     (){},
@@ -245,9 +278,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 Text(
                   text,
                   style: const TextStyle(
-                  color: Colors.black,
-                    fontWeight: FontWeight.w400,
-                  fontSize: 15,
+                  //color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                    fontFamily: 'silone'
                 ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,

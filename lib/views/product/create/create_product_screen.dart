@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marketplace_app/Domain/product/test_page_screen.dart';
 import 'package:marketplace_app/Http/Controller/product/create_product_controller.dart';
 import 'package:marketplace_app/views/color/color_screen.dart';
+import 'package:marketplace_app/views/product/create/product_category_screen.dart';
 import 'package:marketplace_app/views/product/create/product_image_screen.dart';
+import 'package:marketplace_app/views/product/create/product_brand_screen.dart';
 import 'package:marketplace_app/views/product_price_screen.dart';
 
 import '../../../Insfrastructure/custom_functions.dart';
@@ -16,20 +17,17 @@ class CreateProductScreen extends GetView<CreateProductController> {
   Widget build(BuildContext context) {
     final CreateProductController controller = Get.put(CreateProductController());
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
           leading: const Icon(
-            Icons.arrow_back_ios,
+            Icons.arrow_back,
             color: Colors.black,
           ),
-          title: const Text(
-            'Vends ton article',
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 16
-            ),
+          title: Text(
+            'sell_our_article'.tr,
+            style: Theme.of(context).appBarTheme.titleTextStyle,
           ),
         ),
 
@@ -46,182 +44,259 @@ class CreateProductScreen extends GetView<CreateProductController> {
                 children: [
                   Expanded(
                       child: SingleChildScrollView(
+                        padding: const EdgeInsets.all(16),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            const SizedBox(height: 15,),
+                             Text(
+                               'sell_article_title'.tr,
+                               style: Theme.of(context).textTheme.titleLarge,
+                            ),
+
+                            const SizedBox(height: 20,),
                             InkWell(
                               onTap: () {
-                                goTo(ProductImageScrren());
+                                Get.to(() => ProductImageScrren());
                               },
-                              child: const Padding(
-                                padding: EdgeInsets.all(20),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 20),
                                 child: Row(
                                   children:  [
-                                    Text(
-                                      'Ajoute des photos',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
+                                    Container(
+                                      width: 25,
+                                      height: 25,
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).colorScheme.onBackground,
+                                        border: Border.all(
+                                            color: Theme.of(context).colorScheme.onBackground,
+                                            width: 1),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.check,
+                                          color: Theme.of(context).colorScheme.secondary,
+                                          size: 15,),
                                       ),
                                     ),
-                                    Spacer(),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Icon(
-                                      Icons.check,
-                                      size: 25,
-                                      weight: 100,
-                                      color: Colors.green,
+                                    const SizedBox(width: 12,),
+                                    Text(
+                                      'photos'.tr,
+                                      style: Theme.of(context).textTheme.bodyMedium,
                                     ),
                                   ],
                                 ),
                               ),
                             ),
                             Container(
-                              height: 4,
+                              height: 1,
                               width: double.infinity,
-                              color: Colors.grey.shade200,
+                              color: Theme.of(context).dividerColor,
                             ),
                             InkWell(
                               onTap: () {
                                 Get.to(() => ProductPriceScreen());
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(20),
+                                padding: const EdgeInsets.symmetric(vertical: 20),
                                 child: Row(
                                   children: [
-                                    const Text(
-                                      'Prix',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
+                                    Container(
+                                      width: 25,
+                                      height: 25,
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).colorScheme.onBackground,
+                                        border: Border.all(
+                                            color: Theme.of(context).colorScheme.onBackground,
+                                            width: 1),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.check,
+                                          color: Theme.of(context).colorScheme.secondary,
+                                          size: 15,),
                                       ),
                                     ),
-                                    Spacer(),
-
-                                    const SizedBox(
-                                      width: 5,
+                                    const SizedBox(width: 12,),
+                                     Text(
+                                      'price'.tr,
+                                      style: Theme.of(context).textTheme.bodyMedium,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.zero,
-                                      child: controller.price.value.isNull ? const Icon(
-                                        Icons.arrow_forward_ios_outlined,
-                                        size: 17,
-                                        color: Colors.grey,
-                                      ) : null,
-                                    )
                                   ],
                                 ),
                               ),
                             ),
                             Container(
-                              height: 2,
+                              height: 1,
                               width: double.infinity,
-                              color: Colors.grey.shade200,
+                              color: Theme.of(context).dividerColor,
                             ),
                             InkWell(
                               onTap: () {
-                                Get.to(() => ColorScreen());
+                                Get.to(() => const ColorScreen());
                               },
-                              child: Padding(
-                                padding: const EdgeInsets.all(20),
+                              child:  Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 20),
                                 child: Row(
-                                  children: const [
-                                    Text(
-                                      'Couleur',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
+                                  children: [
+                                    Container(
+                                      width: 25,
+                                      height: 25,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border.all(color: Colors.black, width: 1),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '3',
+                                          style: TextStyle(
+                                              fontSize: 10,
+                                              color: Theme.of(context).colorScheme.primary,
+                                              fontFamily: 'silone'
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                    Spacer(),
-
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Icon(
-                                      Icons.arrow_forward_ios_outlined,
-                                      size: 17,
-                                      color: Colors.grey,
+                                    const SizedBox(width: 12,),
+                                     Text(
+                                      'color'.tr,
+                                      style: Theme.of(context).textTheme.bodyMedium,
                                     ),
                                   ],
                                 ),
                               ),
                             ),
                             Container(
-                              height: 2,
+                              height: 1,
                               width: double.infinity,
-                              color: Colors.grey.shade200,
+                              color: Theme.of(context).dividerColor,
                             ),
                             InkWell(
                               onTap: () {
                                 Get.to(() => ProductPriceScreen());
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(20),
+                                padding: const EdgeInsets.symmetric(vertical: 20),
                                 child: Row(
                                   children: [
-                                    const Text(
-                                      'Prix',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
+                                    Container(
+                                      width: 25,
+                                      height: 25,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border.all(color: Colors.black, width: 1),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '3',
+                                          style: TextStyle(
+                                              fontSize: 10,
+                                              color: Theme.of(context).colorScheme.primary,
+                                              fontFamily: 'silone'
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                    Spacer(),
-
-                                    const SizedBox(
-                                      width: 5,
+                                    const SizedBox(width: 12,),
+                                    Text(
+                                      'color'.tr,
+                                      style: Theme.of(context).textTheme.bodyMedium,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.zero,
-                                      child: controller.price.value.isNull ? const Icon(
-                                        Icons.arrow_forward_ios_outlined,
-                                        size: 17,
-                                        color: Colors.grey,
-                                      ) : null,
-                                    )
                                   ],
                                 ),
                               ),
                             ),
                             Container(
-                              height: 2,
+                              height: 1,
                               width: double.infinity,
-                              color: Colors.grey.shade200,
+                              color: Theme.of(context).dividerColor,
                             ),
                             InkWell(
                               onTap: () {
-                                Get.to(() => const TestPageScreen());
+                                Get.to(() => const ProductCategoryScreen());
                               },
                               child: Padding(
-                                padding: const EdgeInsets.all(20),
+                                padding: const EdgeInsets.symmetric(vertical: 20),
                                 child: Row(
                                   children: [
-                                    const Text(
-                                      'Test',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
+                                    Container(
+                                      width: 25,
+                                      height: 25,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border.all(color: Colors.black, width: 1),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '3',
+                                          style: TextStyle(
+                                              fontSize: 10,
+                                              color: Theme.of(context).colorScheme.primary,
+                                              fontFamily: 'silone'
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                    Spacer(),
-
-                                    const SizedBox(
-                                      width: 5,
+                                    const SizedBox(width: 12,),
+                                    Text(
+                                      'color'.tr,
+                                      style: Theme.of(context).textTheme.bodyMedium,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.zero,
-                                      child: controller.price.value.isNull ? const Icon(
-                                        Icons.arrow_forward_ios_outlined,
-                                        size: 17,
-                                        color: Colors.grey,
-                                      ) : null,
-                                    )
+
                                   ],
                                 ),
                               ),
+                            ),
+                            Container(
+                              height: 1,
+                              width: double.infinity,
+                              color: Theme.of(context).dividerColor,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Get.to(() => const ProductBrandScreen());
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 20),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 25,
+                                      height: 25,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        border: Border.all(color: Colors.black, width: 1),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '3',
+                                          style: TextStyle(
+                                              fontSize: 10,
+                                              color: Theme.of(context).colorScheme.primary,
+                                              fontFamily: 'silone'
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 12,),
+                                    Text(
+                                      'color'.tr,
+                                      style: Theme.of(context).textTheme.bodyMedium,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 1,
+                              width: double.infinity,
+                              color: Theme.of(context).dividerColor,
                             ),
                           ],
                         ),
@@ -233,7 +308,30 @@ class CreateProductScreen extends GetView<CreateProductController> {
             }
 
 
-        )
+        ),
+
+      bottomNavigationBar: BottomAppBar(
+          elevation: 0,
+          color: Colors.white,
+          padding: const EdgeInsets.all(15),
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(7),
+                ),
+                fixedSize: const Size(double.infinity, 50),
+              ),
+              onPressed: () {
+              },
+              child: const Text('Valide ton article',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ))
+      ),
+
     );
   }
 }

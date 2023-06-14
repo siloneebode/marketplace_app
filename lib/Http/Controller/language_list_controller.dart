@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:marketplace_app/Domain/Language/language_model.dart';
+import '../../domain/Language/language_model.dart';
 
 class LanguageController extends GetxController {
   List<Language> languages = [];

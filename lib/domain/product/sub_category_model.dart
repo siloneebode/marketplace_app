@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'category_model.dart';
 
-List<SubCategory> addColorListFromJson(String str)
+List<SubCategory> addSubCategoryListFromJson(String str)
 => List<SubCategory>.from(json.decode(str)['data'].map((subCategory)
-=> Category.fromJson(subCategory)));
+=> SubCategory.fromJson(subCategory)));
 
 class SubCategory {
   int id;

@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:marketplace_app/Http/Controller/custom_base_controller.dart';
 import 'package:marketplace_app/Http/services/local_service/local_color_service.dart';
 import 'package:marketplace_app/Insfrastructure/base_client.dart';
-import '../../../Domain/product/custom_color.dart';
 import '../../../Insfrastructure/constants.dart';
+import '../../../domain/product/custom_color.dart';
 
 class ColorController extends GetxController with CustomBaseController {
 
@@ -17,24 +17,19 @@ class ColorController extends GetxController with CustomBaseController {
 
   @override
   void onInit() async {
-    await _localService.init('custom_color');
+    //await _localService.init('custom_color');
     super.onInit();
   }
 
   Future getColors () async {
-    // Si on a les données dans le local, on affiche sinon on appel l'API
-    if(_localService.getData().isNotEmpty){
-      colorList.assignAll(_localService.getData() as Iterable<CustomColor>);
-    } else {
-      var response = await CustomClient().get(url);
-      if (response != null) {
-        // on affiche le résultat de l'API
-        colorList.assignAll(addColorListFromJson(response.toString()));
 
-        // on sauvegarde les données de l'API dans le local
-        _localService.addData(data: addColorListFromJson(response));
-        return colorList;
-      }
+    var response = await CustomClient().get(url);
+    if (response != null) {
+      // on affiche le résultat de l'API
+      colorList.assignAll(addColorListFromJson(response.toString()));
+      // on sauvegarde les données de l'API dans le local
+      //_localService.addData(data: addColorListFromJson(response));
+      return colorList;
     }
 
   }
