@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:marketplace_app/Http/Controller/product/color_controller.dart';
 
-import '../../domain/product/custom_color.dart';
+import '../../domain/color/entity/custom_color.dart';
 import '../../config/constants.dart';
 
 class ColorItems extends StatelessWidget {
@@ -17,7 +17,7 @@ class ColorItems extends StatelessWidget {
       children: [
         InkWell(
           onTap:(){
-            colorController.updatedColor(color);
+
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kdPadding,vertical: 20),
@@ -41,7 +41,7 @@ class ColorItems extends StatelessWidget {
                 const Spacer(),
 
                 Obx(() {
-                  if (colorController.colorListSelected.contains(color)) {
+                  if (colorController.selectedColorList.contains(color)) {
                     return Container(
                       height: 25,
                       width: 25,

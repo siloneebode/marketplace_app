@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../../domain/product/custom_color.dart';
+import '../../../domain/color/entity/custom_color.dart';
 
 
 class CreateProductController extends GetxController {

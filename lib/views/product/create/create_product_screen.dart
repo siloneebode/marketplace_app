@@ -7,8 +7,6 @@ import 'package:marketplace_app/views/product/create/product_image_screen.dart';
 import 'package:marketplace_app/views/product/create/product_brand_screen.dart';
 import 'package:marketplace_app/views/product_price_screen.dart';
 
-import '../../../Insfrastructure/custom_functions.dart';
-
 class CreateProductScreen extends GetView<CreateProductController> {
 
     const CreateProductScreen({Key? key}) : super(key: key);

@@ -49,13 +49,13 @@ class _HomePageState extends State<HomePage> {
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>ServicesPage()));
                         },
-                        child: Row(
+                        child: const Row(
                           children: [
-                            const Icon(Icons.search,color: Colors.black,),
-                            const SizedBox(width: 10,),
+                            Icon(Icons.search,color: Colors.black,),
+                            SizedBox(width: 10,),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
+                              children: [
                                 Text(
                                   'Destination',style: TextStyle(
                                   color: Colors.black,fontSize: 12,
@@ -143,11 +143,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(height: 20,),
-                    Padding(
-                      padding:  const EdgeInsets.symmetric(horizontal: kdPadding),
+                    const Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: kdPadding),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
                             'Favoris',style: TextStyle(
                             color: Colors.black,
@@ -182,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                                   Container(
                                     height: 200,
                                     width: 140,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.red,
                                       image: DecorationImage(
                                           image: AssetImage(
@@ -197,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                                         height: 40,
                                         width: double.infinity,
                                         color: Colors.grey.shade400,
-                                        child: Padding(
+                                        child: const Padding(
                                           padding:  EdgeInsets.symmetric(horizontal: 10,vertical: 13),
                                           child: Text(
                                             'Best Scene',style: TextStyle(
@@ -210,10 +210,10 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                   SizedBox(height: 10,),
-                                  Padding(
+                                  const Padding(
                                     padding:  EdgeInsets.symmetric(horizontal: 5),
                                     child: Row(
-                                      children: const [
+                                      children: [
                                         Text(
                                           '10.00 \$',style: TextStyle(
                                           color: Colors.black,
@@ -251,11 +251,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(height: 10,),
-                    Padding(
-                      padding:  const EdgeInsets.symmetric(horizontal: kdPadding),
+                    const Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: kdPadding),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
                             'Creer un site Web',style: TextStyle(
                             color: Colors.black,
@@ -275,7 +275,7 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(height: 10,),
                     Padding(
                       padding:  const EdgeInsets.only(left: kdPadding),
-                      child: Container(
+                      child: SizedBox(
                         height: 203,
                         width: double.infinity,
                         child:  ListView.separated(

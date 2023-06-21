@@ -12,8 +12,6 @@ class PasswordResetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final moveDistance = screenHeight * 0.3;
     final formController = Get.put(CustomTextFieldController());
     return Scaffold(
         appBar: AppBar(
@@ -57,7 +55,10 @@ class PasswordResetPage extends StatelessWidget {
                             height: 25,
                           ),
                           CustomTextFormField(
-                            label: 'Email',
+                            label: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 5),
+                              child: Text('+237'),
+                            ),
                             controller: formController.textController,
                             obscureText: false,
                             keyboardType: TextInputType.text,

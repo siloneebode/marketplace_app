@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marketplace_app/Http/Controller/product/product_size_controller.dart';
 
-import '../../../Insfrastructure/components/category_list_item.dart';
-import '../../../Insfrastructure/components/customErrorWidget.dart';
-import '../../../Insfrastructure/components/custom_loading.dart';
+import '../../../infrastructure/components/category_list_item.dart';
+import '../../../infrastructure/components/custom_loading.dart';
 
 class ProductSizeScreen extends StatelessWidget {
   const ProductSizeScreen({super.key});
@@ -34,12 +33,8 @@ class ProductSizeScreen extends StatelessWidget {
         ),
       ),
       body: FutureBuilder(
-          future: controller.getData(),
+          future: null,
           builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return CustomErrorWidget(snapshot.error);
-            }
-
             if (snapshot.hasData) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.start,

@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:marketplace_app/Insfrastructure/assets/app_color.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/route_manager.dart';
 
-import '../../Http/Controller/textfield_controller.dart';
+import '../../infrastructure/assets/app_color.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  final String label;
   final bool autofocus ;
   final TextEditingController controller;
   final bool obscureText;
   final TextInputType keyboardType;
   final Widget? suffix;
   final Widget? prefix;
+  final Widget? label;
+  final String? prefixText ;
   final Function(String) onChanged;
   final TextStyle? style ;
+  final List<TextInputFormatter>? inputFormatters ;
 
   const CustomTextFormField({Key? key,
-    required this.label,
+    this.label,
     required this.controller,
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
@@ -25,6 +28,8 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
     this.prefix,
     this.style,
+    this.inputFormatters,
+    this.prefixText,
   }) : super(key: key);
 
   @override
@@ -40,7 +45,8 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       decoration: InputDecoration(
-          labelText: label,
+          label: label,
+          prefixText: prefixText,
           border:  OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.black, width: 2),
             borderRadius: BorderRadius.circular(10)
@@ -48,21 +54,33 @@ class CustomTextFormField extends StatelessWidget {
         suffixIcon: suffix,
         prefixIcon: prefix,
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black, width: 2),
-          borderRadius: BorderRadius.circular(10)
+          borderSide: const BorderSide(color: Colors.black, width: 2),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        errorText: "Veuillez saisir un numéro de téléphone valide",
+        errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.red, width: 2),
+            borderRadius: BorderRadius.circular(10)
+        ),
+        errorStyle: Get.theme.textTheme.bodySmall?.copyWith(
+          color: AppColor.red
+        ),
+        prefix: prefix,
+        prefixStyle: const TextStyle(
+          color: AppColor.grey,
         ),
         focusedErrorBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.red, width: 2),
         ),
         labelStyle: const TextStyle(
-          color: Colors.black,
-        )
+          color: AppColor.grey,
+        ),
       ),
+      inputFormatters: inputFormatters,
       cursorColor: Colors.black,
       cursorWidth: 1,
       autofocus: autofocus,
       onChanged: onChanged,
-
     );
   }
 }

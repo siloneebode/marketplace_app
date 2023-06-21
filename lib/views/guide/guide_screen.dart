@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marketplace_app/Insfrastructure/assets/app_color.dart';
 
 import '../../config/constants.dart';
+import '../../infrastructure/assets/app_color.dart';
 
 class GuideScreen extends StatelessWidget {
   const GuideScreen({super.key});

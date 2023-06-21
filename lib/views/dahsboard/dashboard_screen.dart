@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marketplace_app/controller/dashboard_controller.dart';
-import 'package:marketplace_app/views/detail_product_page.dart';
+import 'package:marketplace_app/views/checkout/checkout_screen.dart';
 import 'package:marketplace_app/views/payment_page.dart';
 import 'package:marketplace_app/views/product/create/create_product_screen.dart';
+import 'package:marketplace_app/views/product/product_detail_screen.dart';
+import '../accept_or_decline-page.dart';
 import '../bottom_navbar_pages/home_page.dart';
+import '../bottom_navbar_pages/message_page.dart';
 import '../bottom_navbar_pages/profile_page.dart';
 import '../vends_ton_article_page.dart';
 
@@ -19,9 +22,9 @@ class DashboardScreen extends StatelessWidget {
           body: SafeArea(
             child: IndexedStack(
               index: controller.tabindex,
-              children: const [
-                HomePage(),
-                PaymentPage(),
+              children: [
+                const ProductDetailScreen(),
+                CheckoutScreen(),
                 CreateProductScreen(),
                 VendsTonArticlePage(),
                 ProfilePage(),

@@ -33,11 +33,14 @@ class Assets {
   static const String imagesBrune = 'assets/images/brune.jpg';
   static const String imagesGoogle = 'assets/images/google.png';
   static const String imagesJuppef = 'assets/images/juppef.jpg';
+  static const String imagesMauritiusImagesIcon = 'assets/images/mauritius-images-icon.png';
   static const String imagesMobileMoney = 'assets/images/mobile-money.jpg';
   static const String imagesModele = 'assets/images/modele.jpg';
   static const String imagesOrange = 'assets/images/Orange.jpg';
   static const String imagesSac = 'assets/images/sac.jpg';
   static const String imagesWoman = 'assets/images/woman.jpg';
+  static const String svgHangerSvgrepoCom = 'assets/svg/hanger-svgrepo-com.svg';
+  static const String svgWardrobeSvgrepoCom = 'assets/svg/wardrobe-svgrepo-com.svg';
   static const String welcomeAddProductOnline = 'assets/images/welcome/add_product_online.jpg';
   static const String welcomeGrowCommunity = 'assets/images/welcome/grow_community.jpg';
   static const String welcomeMakeMoney = 'assets/images/welcome/make_money.jpg';

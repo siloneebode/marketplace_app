@@ -3,9 +3,8 @@ import 'package:get/get.dart';
 import 'package:marketplace_app/Http/Controller/product/product_brand_controller.dart';
 import 'package:marketplace_app/widgets/form/custom_field.dart';
 
-import '../../../Insfrastructure/components/category_list_item.dart';
-import '../../../Insfrastructure/components/customErrorWidget.dart';
-import '../../../Insfrastructure/components/custom_loading.dart';
+import '../../../infrastructure/components/category_list_item.dart';
+import '../../../infrastructure/components/custom_loading.dart';
 
 class ProductBrandScreen extends StatelessWidget {
   const ProductBrandScreen({super.key});
@@ -35,11 +34,9 @@ class ProductBrandScreen extends StatelessWidget {
         ),
       ),
       body: FutureBuilder(
-          future: controller.getBrands(),
+          future: null,
           builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return CustomErrorWidget(snapshot.error);
-            }
+
 
             if (snapshot.hasData) {
               return Column(
@@ -49,7 +46,10 @@ class ProductBrandScreen extends StatelessWidget {
                     padding: EdgeInsets.all(10),
                     child: CustomTextFormField(
                       prefix: const Icon(Icons.search),
-                      label: 'rechercher',
+                      label: const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 5),
+                        child: Text('+237'),
+                        ),
                       controller: TextEditingController(),
                       onChanged: (String) {  },
 
@@ -62,7 +62,7 @@ class ProductBrandScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return CategoryListItem(
                           onTap: () {
-                            controller.change(controller.brandList[index]);
+                            //controller.change(controller.brandList[index]);
                           },
                           object: controller.brandList[index],
                         );

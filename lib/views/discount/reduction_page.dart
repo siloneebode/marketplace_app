@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../Insfrastructure/assets/app_color.dart';
 import '../../config/constants.dart';
+import '../../infrastructure/assets/app_color.dart';
 
 class DiscountScreen extends StatelessWidget {
   const DiscountScreen({super.key});

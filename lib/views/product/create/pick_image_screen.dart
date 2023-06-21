@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marketplace_app/routes/app_page.dart';
 import 'package:marketplace_app/routes/app_route.dart';
-import 'package:marketplace_app/views/product/create/product_image_screen.dart';
 import 'package:photo_manager/photo_manager.dart';
 import '../../../Http/Controller/imagePicker/media_list_controller.dart';
 

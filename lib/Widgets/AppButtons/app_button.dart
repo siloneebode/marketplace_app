@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   String text;
   Color buttoncolor;
-  AppButton({
+  AppButton({super.key,
     required this.text,
     required this.buttoncolor,
   });

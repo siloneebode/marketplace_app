@@ -7,8 +7,6 @@ import 'package:marketplace_app/routes/app_route.dart';
 import 'package:marketplace_app/views/product/create/pick_image_screen.dart';
 import 'package:photo_manager/photo_manager.dart';
 
-import '../../../Insfrastructure/components/bottomsheet/pick_image_sheet.dart';
-
 class ProductImageScrren extends StatelessWidget {
 
   final ProductImageController controller = Get.put(ProductImageController());

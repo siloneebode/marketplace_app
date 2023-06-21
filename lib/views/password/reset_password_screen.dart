@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marketplace_app/Insfrastructure/assets/app_color.dart';
 import 'package:marketplace_app/widgets/form/custom_field.dart';
 
 import '../../config/constants.dart';
+import '../../infrastructure/assets/app_color.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
@@ -48,7 +48,10 @@ class ResetPasswordScreen extends StatelessWidget {
             const SizedBox(height: 35,),
 
             CustomTextFormField(
-              label: 'Address email',
+              label: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                child: Text('Address email'),
+              ),
               controller: TextEditingController(),
               onChanged: (String ) {  },
 

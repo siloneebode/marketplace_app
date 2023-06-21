@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../Components/custom_separator.dart';
-import '../../Insfrastructure/assets/app_fonts.dart';
-import '../../Insfrastructure/assets/app_image_assets.dart';
+import '../../infrastructure/assets/app_fonts.dart';
+import '../../infrastructure/assets/app_image_assets.dart';
 
 class DeliverPage extends StatelessWidget {
   const DeliverPage({super.key});

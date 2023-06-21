@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:marketplace_app/Insfrastructure/assets/app_theme.dart';
 import 'package:marketplace_app/routes/app_page.dart';
 import 'package:marketplace_app/routes/app_route.dart';
-import 'Insfrastructure/local/app_languages.dart';
+
+import 'infrastructure/assets/app_theme.dart';
+import 'infrastructure/local/app_languages.dart';
 
 void main() async {
 

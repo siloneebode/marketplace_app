@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:marketplace_app/Insfrastructure/assets/app_color.dart';
 import '../../Components/custom_separator.dart';
 import '../../config/constants.dart';
+import '../../infrastructure/assets/app_color.dart';
 import '../password/reset_password_screen.dart';
 
 class SecurityScreen extends StatelessWidget {

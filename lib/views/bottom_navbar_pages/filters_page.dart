@@ -27,7 +27,7 @@ class _FiltersPageState extends State<FiltersPage> {
                 color: Colors.black,
                 size: 20,
               )),
-          title: TextField(
+          title: const TextField(
             style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
               hintText: 'Trouver des services',
@@ -50,7 +50,7 @@ class _FiltersPageState extends State<FiltersPage> {
             ),
           ],
         ),
-        body: Padding(
+        body: const Padding(
           padding: EdgeInsets.symmetric(horizontal: kdPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +70,7 @@ class _FiltersPageState extends State<FiltersPage> {
                 height: 10,
               ),
               Row(
-                children: const [
+                children: [
                   Text(
                     'Category',
                     style: TextStyle(
@@ -120,7 +120,7 @@ class _FiltersPageState extends State<FiltersPage> {
                 height: 10,
               ),
               Row(
-                children: const [
+                children: [
                   Text(
                     'Niveau du prestataire',
                     style: TextStyle(

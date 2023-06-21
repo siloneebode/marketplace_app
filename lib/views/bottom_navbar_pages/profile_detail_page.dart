@@ -112,14 +112,14 @@ class _ClosetState extends State<Closet> {
             width: double.infinity,
             color: Colors.grey.shade200,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: kdPadding),
+            padding: const EdgeInsets.symmetric(horizontal: kdPadding),
             child: Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.blue,
                   child: Center(
@@ -218,17 +218,10 @@ class _ClosetState extends State<Closet> {
                 padding: EdgeInsets.symmetric(horizontal: kdPadding),
                 child: InkWell(
                   onTap: () {
-                    setState(() {
-                      if (istrue == false) {
-                        istrue = true;
-                      } else {
-                        istrue = false;
-                      }
-                    });
                   },
                   child: Text(
                     istrue ?  'Afficher la suite': 'Show less',
-                    style: TextStyle(
+                    style: const TextStyle(
                       decoration: TextDecoration.underline,
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -238,10 +231,10 @@ class _ClosetState extends State<Closet> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: kdPadding),
             child: Row(
               children: [
@@ -265,7 +258,7 @@ class _ClosetState extends State<Closet> {
           SizedBox(
             height: 10,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: kdPadding),
             child: Row(
               children: [
@@ -289,10 +282,10 @@ class _ClosetState extends State<Closet> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: kdPadding),
             child: Row(
               children: [
@@ -384,7 +377,7 @@ class _ClosetState extends State<Closet> {
                         border: Border.all(
                           color: Colors.black,
                         )),
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: kdPadding, vertical: 12),
                       child: Center(
@@ -407,7 +400,7 @@ class _ClosetState extends State<Closet> {
                       color: Colors.red,
                       borderRadius: BorderRadius.circular(7),
                     ),
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: kdPadding, vertical: 13.5),
                       child: Center(
@@ -447,7 +440,7 @@ class _ClosetState extends State<Closet> {
           SizedBox(
             height: 15,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: kdPadding),
             child: Row(
               children: [
@@ -498,7 +491,7 @@ class _ClosetState extends State<Closet> {
                         height: 200,
                         width: double.infinity,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Colors.amber,
                             image: DecorationImage(
                               image: AssetImage(
@@ -510,7 +503,7 @@ class _ClosetState extends State<Closet> {
                       SizedBox(
                         height: 10,
                       ),
-                      Row(
+                      const Row(
                         children: [
                           Text(
                             '\$20.00',
@@ -540,7 +533,7 @@ class _ClosetState extends State<Closet> {
                       SizedBox(
                         height: 4,
                       ),
-                      Row(
+                      const Row(
                         children: [
                           Text(
                             '\$21.70 incl.',
@@ -559,20 +552,20 @@ class _ClosetState extends State<Closet> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
-                      Text(
+                      const Text(
                         '21/L',
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 12,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 2,
                       ),
-                      Text(
+                      const Text(
                         'Billabong',
                         style: TextStyle(
                           color: Colors.grey,
@@ -583,7 +576,7 @@ class _ClosetState extends State<Closet> {
                   );
                 }),
           ),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
         ],
@@ -609,7 +602,7 @@ class ReviewPage extends StatelessWidget {
             height: 20,
           ),
           ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: 70,
               itemBuilder: (BuildContext context, int index) {
@@ -620,7 +613,7 @@ class ReviewPage extends StatelessWidget {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             radius: 25,
                             backgroundImage: AssetImage('assets/images.png'),
                           ),

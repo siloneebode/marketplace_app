@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marketplace_app/widgets/form/custom_field.dart';
-
-import '../../Insfrastructure/assets/app_color.dart';
 import '../../config/constants.dart';
+import '../../infrastructure/assets/app_color.dart';
 
 class GuideSearchScreen extends StatelessWidget {
   const GuideSearchScreen({super.key});
@@ -47,7 +46,10 @@ class GuideSearchScreen extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: CustomTextFormField(
                 prefix: const Icon(Icons.search),
-                label: 'Recherche dans le guide',
+                label: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  child: Text('Recherche dans le guide'),
+                ),
                 controller: TextEditingController(),
                 onChanged: (String) {  },
 

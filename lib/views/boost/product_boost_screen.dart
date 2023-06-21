@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:marketplace_app/Insfrastructure/assets/app_color.dart';
-import 'package:marketplace_app/Insfrastructure/assets/app_image_assets.dart';
 import 'package:marketplace_app/config/constants.dart';
 
 import '../../Components/custom_separator.dart';
+import '../../infrastructure/assets/app_color.dart';
+import '../../infrastructure/assets/app_image_assets.dart';
 
 class ProductBoostScreen extends StatelessWidget {
   const ProductBoostScreen({super.key});
@@ -246,7 +245,7 @@ class ProductBoostScreen extends StatelessWidget {
               ),
               onPressed: () {
               },
-              child: Text('Finalise ta commande (300)',
+              child: Text('Finalise ta commande • (600)',
                 style: Theme.of(context).textTheme.displaySmall?.copyWith(
                   color: Theme.of(context).colorScheme.secondary,
                   fontWeight: FontWeight.w600

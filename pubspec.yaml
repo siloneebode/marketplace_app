@@ -48,8 +48,10 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/svg/
     - assets/images/welcome/
     - assets/images/paiements/
+    - assets/images/deliver/
     - assets/images/deliver/
 
 

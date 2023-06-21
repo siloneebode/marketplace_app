@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marketplace_app/Http/Controller/product/product_category_controller.dart';
-import '../../../Insfrastructure/components/category_list_item.dart';
-import '../../../Insfrastructure/components/customErrorWidget.dart';
-import '../../../Insfrastructure/components/custom_loading.dart';
+import '../../../infrastructure/components/custom_loading.dart';
 
 class ProductCategoryScreen extends StatelessWidget {
   const ProductCategoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ProductCategoryController controller = Get.put(ProductCategoryController());
+    //ProductCategoryController controller = Get.put(ProductCategoryController());
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
@@ -33,28 +30,12 @@ class ProductCategoryScreen extends StatelessWidget {
         ),
       ),
       body: FutureBuilder(
-          future: controller.getCategories(),
+          future: null, //controller.getCategories(),
           builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return CustomErrorWidget(snapshot.error);
-            }
-
             if (snapshot.hasData) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: controller.categoryList.length,
-                  itemBuilder: (context, index) {
-                    return CategoryListItem(
-                      onTap: () {
-                        controller.change(controller.categoryList[index]);
-                      },
-                      object: controller.categoryList[index],
-                    );
-                  }
-              )
                 ],
               );
             }

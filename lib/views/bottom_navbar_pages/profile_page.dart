@@ -2,24 +2,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:marketplace_app/views/auth/account_suspended.dart';
 import 'package:marketplace_app/views/boost/product_boost_screen.dart';
 import 'package:marketplace_app/views/bottom_navbar_pages/profile_detail_page.dart';
+import 'package:marketplace_app/views/checkout/checkout_screen.dart';
+import 'package:marketplace_app/views/conversation/conversation_screen.dart';
 import 'package:marketplace_app/views/discount/reduction_page.dart';
 import 'package:marketplace_app/views/guide/guide_search_screen.dart';
 import 'package:marketplace_app/views/notification_page.dart';
 import 'package:marketplace_app/views/order/order_page.dart';
-import 'package:marketplace_app/views/profil/account_informations_page.dart';
+import 'package:marketplace_app/views/product/product_detail_screen.dart';
+import 'package:marketplace_app/views/profil/profil_details_screen.dart';
+import 'package:marketplace_app/views/user-informations/account_informations_page.dart';
+import 'package:marketplace_app/views/vacation/vacance_mode_screen.dart';
 import 'package:marketplace_app/views/wallet/wallet_page.dart';
 import 'package:marketplace_app/views/translation/translation_page.dart';
-import 'package:marketplace_app/views/vacation/vacance_mode_screen.dart';
 
 import '../../config/constants.dart';
-import '../Versement/versement_screen.dart';
 import '../deliver/deliver_page.dart';
 import '../favoris/favoris_page.dart';
 import '../guide/guide_screen.dart';
 import '../profil/langue_page.dart';
 import '../security/security_page.dart';
+import '../versement/versement_screen.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -40,16 +45,11 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(
               height: 25,
             ),
-            const Padding(
-              padding:  EdgeInsets.symmetric(horizontal: kdPadding),
+             Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kdPadding),
               child: Text(
                 'Profil',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'silone_bold',
-                ),
+                style: Get.theme.textTheme.titleLarge
               ),
             ),
             const SizedBox(
@@ -57,7 +57,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> const ProfileDetailPage()));
+                Get.to(() => const ProfileDetailScreen());
               },
               child: const Padding(
                 padding:  EdgeInsets.symmetric(horizontal: kdPadding,vertical: 10),
@@ -122,7 +122,7 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(height: 10,),
             _reusablaWidget(
                 (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const AccountInformationPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const AccountInformationScreen()));
                 },
               Icons.account_circle_outlined,
               'Informations du compte'
@@ -138,17 +138,45 @@ class _ProfilePageState extends State<ProfilePage> {
                 'Mon portemonaie'
             ),
             _reusablaWidget(
-                    (){Get.to(()=> const ProductBoostScreen());},
+                    (){Get.to(() => const ProductBoostScreen());},
                 Icons.settings_outlined,
                 'Personnalisation'
             ),
 
             _reusablaWidget(
                     (){
-                      Get.to(()=> const GuideSearchScreen());
+                      Get.to(()=> const VacationModeScreen());
                     },
                 Icons.toggle_off_outlined,
                 'Mode Vacances'
+            ),
+            _reusablaWidget(
+                    (){
+                  Get.to(()=> const ProductDetailScreen());
+                },
+                Icons.production_quantity_limits,
+                'Détail du produit'
+            ),
+            _reusablaWidget(
+                    (){
+                  Get.to(()=> const AccountSuspendedScreen());
+                },
+                Icons.block_outlined,
+                'Compte bloqué'
+            ),
+            _reusablaWidget(
+                    (){
+                  Get.to(()=> const ConversationScreen());
+                },
+                Icons.chat_bubble_outline,
+                'Conversation'
+            ),
+            _reusablaWidget(
+                    (){
+                  Get.to(()=> CheckoutScreen());
+                },
+                Icons.library_add_check_outlined,
+                'Checkout'
             ),
             _reusablaWidget(
                     (){

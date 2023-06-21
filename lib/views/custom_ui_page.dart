@@ -15,13 +15,8 @@ class CustomUIPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool ischecked = false;
     bool ischecked2 = false;
-    final screenHeight = MediaQuery
-        .of(context)
-        .size
-        .height;
-    final moveDistance = screenHeight * 0.3;
+
     final formController = Get.put(CustomTextFieldController());
     final passwordController = Get.put(CustomTextFieldController());
     return Scaffold(
@@ -65,7 +60,10 @@ class CustomUIPage extends StatelessWidget {
                     height: 25,
                   ),
                   CustomTextFormField(
-                    label: 'Email',
+                    label: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      child: Text('Email'),
+                    ),
                     key: formController.formKey,
                     controller: formController.textController,
                     obscureText: false,
@@ -76,7 +74,10 @@ class CustomUIPage extends StatelessWidget {
                     height: 15,
                   ),
                   CustomTextFormField(
-                    label: 'Password',
+                    label: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      child: Text('Password'),
+                    ),
                     controller: passwordController.textController,
                     obscureText: true,
                     keyboardType: TextInputType.text,

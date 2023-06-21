@@ -1,44 +1,41 @@
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
-import 'package:marketplace_app/Http/Controller/custom_base_controller.dart';
-import 'package:marketplace_app/Http/services/local_service/local_color_service.dart';
-import 'package:marketplace_app/Insfrastructure/base_client.dart';
-import '../../../Insfrastructure/constants.dart';
-import '../../../domain/product/custom_color.dart';
+import 'package:marketplace_app/domain/color/repository/color_repository.dart';
+import 'package:marketplace_app/infrastructure/base_controller.dart';
+import '../../../domain/color/entity/custom_color.dart';
+import '../../../infrastructure/network/response/api_status.dart';
 
-class ColorController extends GetxController with CustomBaseController {
+class ColorController extends BaseController {
 
-  RxList<CustomColor> colorList = List<CustomColor>.empty(growable: true).obs ;
-  RxList<CustomColor> colorListSelected = List<CustomColor>.empty(growable: true).obs ;
-  static const TIME_OUT_DURATION = 15;
-  final LocalColorService _localService = LocalColorService();
-  var client = http.Client();
-  var url = '$baseUrl/api/colors/';
+  final _api = ColorRepository();
+
+  final rxRequestStatus = Status.LOADING.obs ;
+  final RxList<CustomColor> colorList = List<CustomColor>.empty(growable: true).obs ;
+  final RxList selectedColorList = List<CustomColor>.empty(growable: true).obs ;
+  final RxString error = ''.obs ;
+
+
+  void setRxRequestStatus(Status _value) => rxRequestStatus.value = _value ;
+  void setColor(List<CustomColor> _value) => colorList.assignAll(_value) ;
+  void setError(String _value) => error.value = _value ;
 
   @override
-  void onInit() async {
-    //await _localService.init('custom_color');
-    super.onInit();
+  void getData () {
+    _api.colorListApi().then((value) {
+      setRxRequestStatus(Status.COMPLETED);
+      setColor(value);
+      colorList.assignAll(value);
+    }).onError((error, stackTrace) {
+      setError(error.toString());
+      setRxRequestStatus(Status.ERROR);
+    });
   }
 
-  Future getColors () async {
-
-    var response = await CustomClient().get(url);
-    if (response != null) {
-      // on affiche le résultat de l'API
-      colorList.assignAll(addColorListFromJson(response.toString()));
-      // on sauvegarde les données de l'API dans le local
-      //_localService.addData(data: addColorListFromJson(response));
-      return colorList;
-    }
-
+  @override
+  void reload() {
+    setRxRequestStatus(Status.LOADING);
+    getData();
+    update();
   }
 
-  void updatedColor (CustomColor color) {
-    if(colorListSelected.contains(color)){
-      colorListSelected.remove(color);
-    }else {
-      colorListSelected.add(color);
-    }
-  }
+
 }

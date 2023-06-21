@@ -1,11 +1,7 @@
-import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:marketplace_app/Components/custom_separator.dart';
 import 'package:marketplace_app/config/constants.dart';
-
-import '../../domain/chart/chart_graph.dart';
 
 class MyWalletScreen extends StatelessWidget {
   const MyWalletScreen({super.key});

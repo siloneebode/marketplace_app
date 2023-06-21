@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:marketplace_app/infrastructure/assets/app_image_assets.dart';
 
 import '../Widgets/AppButtons/app_button.dart';
 import '../config/constants.dart';
@@ -13,8 +14,6 @@ class DetailProductPage extends StatefulWidget {
 }
 
 class _DetailProductPageState extends State<DetailProductPage> {
-  int _current = 0;
-  final CarouselController _controller = CarouselController();
   List list = [
     const SliderImage(),
     const SliderImage(),
@@ -623,7 +622,7 @@ class SliderImage extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    SliderFullImage(imagePath: 'assets/images.png')));
+                    SliderFullImage(imagePath: AppImage.babouche)));
       },
       child: Container(
         height: 180,
@@ -631,7 +630,7 @@ class SliderImage extends StatelessWidget {
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(
-                  'assets/images.png',
+                  AppImage.babouche,
                 ),
                 fit: BoxFit.cover)),
       ),
@@ -659,7 +658,7 @@ class _SliderFullImageState extends State<SliderFullImage> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             IconButton(
@@ -667,7 +666,7 @@ class _SliderFullImageState extends State<SliderFullImage> {
                   Navigator.pop(context);
                 },
                 icon: Icon(Icons.arrow_back)),
-            Spacer(),
+            const Spacer(),
             CarouselSlider(
               items: [
                 Expanded(
@@ -739,8 +738,8 @@ class _SliderFullImageState extends State<SliderFullImage> {
                     });
                   }),
             ),
-            Spacer(),
-            SizedBox(
+            const Spacer(),
+            const SizedBox(
               height: 55,
             ),
           ],

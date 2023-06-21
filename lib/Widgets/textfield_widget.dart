@@ -9,7 +9,7 @@ class CustomTextField extends StatefulWidget {
   String label;
   TextInputType? keyboardType;
 
-  CustomTextField({
+  CustomTextField({super.key,
     required this.controller,
     required this.obscureText,
     required this.label,

@@ -2,11 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:marketplace_app/Http/Controller/product/create_product_controller.dart';
-import 'package:marketplace_app/Http/Controller/textfield_controller.dart';
+
 
 import '../Http/Controller/product/product_price_controller.dart';
-import '../Widgets/textfield_widget.dart';
 import '../config/constants.dart';
 import '../routes/app_route.dart';
 import '../widgets/form/custom_field.dart';
@@ -87,7 +85,10 @@ class ProductPriceScreen extends StatelessWidget {
                   ),
 
                   CustomTextFormField(
-                    label: 'Prix',
+                    label: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      child: Text('+Prix'),
+                    ),
                     controller: controller.priceController,
                     obscureText: false,
                     keyboardType: TextInputType.number,

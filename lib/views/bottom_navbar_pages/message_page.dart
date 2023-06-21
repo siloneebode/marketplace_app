@@ -59,7 +59,7 @@ class _MessagePageState extends State<MessagePage>
                 child: TabBarView(
                   controller: _tabController,
                   children: [
-                    TabbarViewScreens(),
+                    TabBarViewScreens(),
                     const Center(
                       child: Text(
                         "Tu n'as pas encore de notification",
@@ -81,8 +81,8 @@ class _MessagePageState extends State<MessagePage>
   }
 }
 
-class TabbarViewScreens extends StatelessWidget {
-  TabbarViewScreens({Key? key}) : super(key: key);
+class TabBarViewScreens extends StatelessWidget {
+  TabBarViewScreens({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
